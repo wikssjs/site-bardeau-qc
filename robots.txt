@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /soumission-bardeau/
+Crawl-delay: 2
+
+Sitemap: https://remplacement-bardeau.ca/sitemap-index.xml
