@@ -90,10 +90,12 @@
         <span class="w-1.5 h-1.5 rounded-full ba-pulse" style="background:var(--p5)"></span>
         Soumission gratuite
       </span>
-      <a href="/soumission-bardeau/" target="_blank" rel="noopener sponsored"
-         class="hidden sm:inline-flex ba-btn-primary px-5 py-2.5 text-white text-sm font-bold rounded-full">
-        Obtenir un prix
-      </a>
+      <div class="hidden sm:flex">
+        <a href="/soumission-bardeau/" target="_blank" rel="noopener sponsored"
+           class="ba-btn-primary px-5 py-2.5 text-white text-sm font-bold rounded-full">
+          Obtenir un prix
+        </a>
+      </div>
     </div>
   </div>
 </nav>
@@ -546,6 +548,28 @@ if (_form) {
     }).then(function() {
       document.querySelectorAll('.ba-form-step').forEach(function(s) { s.classList.remove('active'); });
       var merci = document.getElementById('step-merci');
+      if (merci) merci.classList.add('active');
+      _updateDots(_totalSteps + 1);
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'lead_qualifie', {event_category: 'lead', event_label: 'Saint-Séverin', event_value: 1});
+      }
+    }).catch(function() { _form.submit(); });
+  });
+}
+
+/* Masquer sticky bar au scroll vers le formulaire */
+var _stickyBar = document.getElementById('sticky-bar');
+if (_stickyBar) {
+  var _formEl = document.getElementById('formulaire');
+  window.addEventListener('scroll', function() {
+    if (_formEl) {
+      var rect = _formEl.getBoundingClientRect();
+      _stickyBar.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'none' : '';
+    }
+  }, {passive: true});
+}
+</script></body>
+</html>etElementById('step-merci');
       if (merci) merci.classList.add('active');
       _updateDots(_totalSteps + 1);
       if (typeof gtag !== 'undefined') {
