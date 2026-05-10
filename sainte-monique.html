@@ -91,7 +91,7 @@
         Soumission gratuite
       </span>
       <a href="/soumission-bardeau/" target="_blank" rel="noopener sponsored"
-         class="ba-btn-primary px-5 py-2.5 text-white text-sm font-bold rounded-full">
+         class="hidden sm:inline-flex ba-btn-primary px-5 py-2.5 text-white text-sm font-bold rounded-full">
         Obtenir un prix
       </a>
     </div>
@@ -556,6 +556,18 @@ if (_form) {
 }
 
 /* Masquer sticky bar au scroll vers le formulaire */
+var _stickyBar = document.getElementById('sticky-bar');
+if (_stickyBar) {
+  var _formEl = document.getElementById('formulaire');
+  window.addEventListener('scroll', function() {
+    if (_formEl) {
+      var rect = _formEl.getBoundingClientRect();
+      _stickyBar.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'none' : '';
+    }
+  }, {passive: true});
+}
+</script></body>
+</html> formulaire */
 var _stickyBar = document.getElementById('sticky-bar');
 if (_stickyBar) {
   var _formEl = document.getElementById('formulaire');
