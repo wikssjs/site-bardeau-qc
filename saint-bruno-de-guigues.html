@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_CA">
 <meta property="og:site_name" content="Remplacement Bardeau QC">
-<meta property="article:modified_time" content="2026-05-10">
+<meta property="article:modified_time" content="2026-05-17">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Couvreur Bardeau Saint-Bruno-de-Guigues | Refection & Reparation | Remplacement Bardeau QC">
 <meta name="twitter:description" content="Besoin de remplacer votre bardeau a Saint-Bruno-de-Guigues ? Obtenez 5 soumissions gratuites de couvreurs certifies RBQ en 24h.">
@@ -136,7 +136,7 @@
           Bardeau d'asphalte<br><span class="text-primary-400">Saint-Bruno-de-Guigues</span>
         </h1>
         <p class="text-white text-lg leading-relaxed max-w-lg"
-           style="text-shadow:0 1px 8px rgba(0,0,0,0.8)">Vous avez besoin d'un couvreur pour votre toiture a Saint-Bruno-de-Guigues? Obtenez jusqu'a 5 devis personnalises de couvreurs specialises en bardeau en moins de 24 heures. Bardeau 40 ans — couvreurs verifies.</p>
+           style="text-shadow:0 1px 8px rgba(0,0,0,0.8)">Vous planifiez de remplacer votre bardeau a Saint-Bruno-de-Guigues? Obtenez jusqu'a 5 devis personnalises de couvreurs specialises en bardeau en moins de 24 heures. Bardeau 40 ans — couvreurs verifies.</p>
         <div class="flex flex-wrap gap-3 pt-1">
           <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 text-sm text-white">
             <svg class="w-4 h-4 shrink-0 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,13 +535,14 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-/* Soumission AJAX Netlify */
+/* Soumission AJAX */
+var _submitUrl = '/';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
     var data = new FormData(_form);
-    fetch('/', {
+    fetch(_submitUrl, {
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: new URLSearchParams(data).toString()

@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_CA">
 <meta property="og:site_name" content="Remplacement Bardeau QC">
-<meta property="article:modified_time" content="2026-05-10">
+<meta property="article:modified_time" content="2026-05-17">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bardeau Asphalte Baie-D'Urfé 2026 | Devis Gratuit en 24h | Remplacement Bardeau QC">
 <meta name="twitter:description" content="Remplacement bardeau asphalte a Baie-D'Urfé — des 4321$. Couvreurs certifies RBQ, soumissions gratuites, reponse en 24h.">
@@ -535,13 +535,14 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-/* Soumission AJAX Netlify */
+/* Soumission AJAX */
+var _submitUrl = '/';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
     var data = new FormData(_form);
-    fetch('/', {
+    fetch(_submitUrl, {
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: new URLSearchParams(data).toString()
